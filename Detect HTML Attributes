@@ -1,0 +1,22 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+import re
+from collections import defaultdict
+
+pattern_tags = '<(\w+)(.?|\s*.*?)>'
+pattern_attributes = '(\w+)=[\"\']'
+
+lines = int(raw_input())
+
+tags = defaultdict(set)
+
+for _ in range(lines):
+    line = raw_input()
+    results = re.findall(pattern_tags, line)
+    for tag, attrs_raw in results:
+        tags[tag].update(re.findall(pattern_attributes, attrs_raw))
+
+for k, v in sorted(tags.items(), key=lambda l: l[0]):
+    print k + ':' + ','.join(sorted(v))
+        
+    
