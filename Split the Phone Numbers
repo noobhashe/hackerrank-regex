@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+import re
+import sys
+
+pattern = '([0-9]{1,3})[^A-Za-z0-9]([0-9]{1,3})[^A-Za-z0-9]([0-9]{4,10})'
+
+lines = int(raw_input())
+
+for i in range(lines):
+    line = raw_input()
+    result = re.findall(pattern, line)
+    print 'CountryCode=' + result[0][0] + ',LocalAreaCode=' + result[0][1]\
+        + ',Number=' + result[0][2]
+        
+    
