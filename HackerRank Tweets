@@ -1,0 +1,12 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+import re 
+
+pattern = 'hackerrank'
+lines = int(raw_input())
+count = 0
+for i in range(lines):
+    line = raw_input().lower()
+    if re.findall(pattern, line):
+        count += 1
+print count
