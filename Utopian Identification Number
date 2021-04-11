@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+import re
+import sys
+
+pattern = '^[a-z]{0,3}\d{2,8}[A-Z]{3,}$'
+
+lines = int(raw_input())
+
+for i in range(lines):
+    line = raw_input()
+    if re.findall(pattern, line):
+        print 'VALID'
+    else:
+        print 'INVALID'
+
